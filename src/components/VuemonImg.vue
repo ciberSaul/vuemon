@@ -1,10 +1,27 @@
 <template>
-  <h2>Soy el VuemonImagenes</h2>
-  <!-- https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg -->
+  <div class="vuokemon-container">
+    <img class="fade-in hidden-vuokemon" :src="srcImg" />
+    <img class="fade-in" :src="srcImg" />
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      vuemonId: 5,
+      srcImg: "",
+    };
+  },
+  methods: {
+    obtenerImagen() {
+      this.srcImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.vuemonId}.svg`;
+    },
+  },
+  mounted() {
+    this.obtenerImagen();
+  },
+};
 </script>
 
 <style scoped>
